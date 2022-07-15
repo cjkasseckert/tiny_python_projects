@@ -11,6 +11,7 @@ tex2pdf*
 .coverage
 .idea
 .vscode
+01_hello/hello.py
 02_crowsnest/crowsnest.py
 03_picnic/picnic.py
 04_jump_the_five/jump.py
