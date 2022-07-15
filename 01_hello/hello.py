@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Author:  Ken Youens-Clark <kyclark@gmail.com>
+Author:  Craig Kasseckert <cjkasseckert@gmail.com>
 Purpose: Say hello
 """
 
