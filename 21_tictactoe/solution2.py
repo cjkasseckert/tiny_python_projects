@@ -69,10 +69,10 @@ def main():
 def format_board(board):
     """Format the board"""
 
-    cells = []
-    for i, char in enumerate(board, start=1):
-        cells.append(str(i) if char == '.' else char)
-
+    cells = [
+        str(i) if char == '.' else char
+        for i, char in enumerate(board, start=1)
+    ]
     bar = '-------------'
     cells_tmpl = '| {} | {} | {} |'
     return '\n'.join([

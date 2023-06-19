@@ -22,7 +22,7 @@ def main():
     """Make a jazz noise here"""
 
     args = get_args()
-    print('Hello, ' + args.name + '!')
+    print(f'Hello, {args.name}!')
 
 
 # --------------------------------------------------

@@ -65,15 +65,14 @@ def main():
         out_file = os.path.join(args.outdir, basename)
         print(f'{i:3}: {basename}')
 
-        out_fh = open(out_file, 'wt')
-        num_taken = 0
+        with open(out_file, 'wt') as out_fh:
+            num_taken = 0
 
-        for rec in SeqIO.parse(fh, 'fasta'):
-            if random.random() <= args.pct:
-                num_taken += 1
-                SeqIO.write(rec, out_fh, 'fasta')
+            for rec in SeqIO.parse(fh, 'fasta'):
+                if random.random() <= args.pct:
+                    num_taken += 1
+                    SeqIO.write(rec, out_fh, 'fasta')
 
-        out_fh.close()
         total_num += num_taken
 
     num_files = len(args.file)

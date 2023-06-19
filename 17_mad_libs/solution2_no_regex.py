@@ -48,7 +48,7 @@ def main():
         pos = placeholder[1:-1]
         article = 'an' if pos.lower()[0] in 'aeiou' else 'a'
         answer = inputs.pop(0) if inputs else input(tmpl.format(article, pos))
-        text = text[0:start] + answer + text[stop + 1:]
+        text = text[:start] + answer + text[stop + 1:]
         had_placeholders = True
 
     if had_placeholders:

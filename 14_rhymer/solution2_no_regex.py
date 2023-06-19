@@ -39,9 +39,9 @@ def stemmer(word):
     """Return leading consonants (if any), and 'stem' of word"""
 
     word = word.lower()
-    vowel_pos = list(map(word.index, filter(lambda v: v in word, 'aeiou')))
-
-    if vowel_pos:
+    if vowel_pos := list(
+        map(word.index, filter(lambda v: v in word, 'aeiou'))
+    ):
         first_vowel = min(vowel_pos)
         return (word[:first_vowel], word[first_vowel:])
     else:

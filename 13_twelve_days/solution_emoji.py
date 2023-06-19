@@ -77,7 +77,7 @@ def verse(day):
     lines.extend(reversed(gifts[:day]))
 
     if day > 1:
-        lines[-1] = 'And ' + lines[-1].lower()
+        lines[-1] = f'And {lines[-1].lower()}'
 
     return '\n'.join(lines)
 

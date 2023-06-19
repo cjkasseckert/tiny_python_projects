@@ -38,11 +38,7 @@ def main():
     args = get_args()
     random.seed(args.seed)
 
-    # Method 1: Iterate each character, add to list
-    ransom = []
-    for char in args.text:
-        ransom.append(choose(char))
-
+    ransom = [choose(char) for char in args.text]
     print(''.join(ransom))
 
 

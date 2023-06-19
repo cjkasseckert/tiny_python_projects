@@ -39,11 +39,11 @@ def fry(word):
     """Drop the `g` from `-ing` words, change `you` to `y'all`"""
 
     if word.lower() == 'you':
-        return word[0] + "'all"
+        return f"{word[0]}'all"
 
     if word.endswith('ing'):
         if any(map(lambda c: c.lower() in 'aeiouy', word[:-3])):
-            return word[:-1] + "'"
+            return f"{word[:-1]}'"
 
     return word
 

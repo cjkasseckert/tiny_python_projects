@@ -99,7 +99,7 @@ def body(args: Args) -> str:
 
     return f"""#!/usr/bin/env python3
 \"\"\"
-Author : {args.name}{' <' + args.email + '>' if args.email else ''}
+Author : {args.name}{f' <{args.email}>' if args.email else ''}
 Date   : {today}
 Purpose: {args.purpose}
 \"\"\"
@@ -180,8 +180,7 @@ def get_defaults():
     defaults = {}
     if os.path.isfile(rc):
         for line in open(rc):
-            match = re.match('([^=]+)=([^=]+)', line)
-            if match:
+            if match := re.match('([^=]+)=([^=]+)', line):
                 key, val = map(str.strip, match.groups())
                 if key and val:
                     defaults[key] = val
