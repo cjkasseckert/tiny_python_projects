@@ -220,7 +220,7 @@ def test_losing():
     """test losing boards"""
 
     losing_board = list('XXOO.....')
-    for i in range(10):
+    for _ in range(10):
         random.shuffle(losing_board)
         out = getoutput(f'{prg} -b {"".join(losing_board)}').splitlines()
         assert out[-1].strip() == 'No winner.'

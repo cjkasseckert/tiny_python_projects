@@ -60,7 +60,7 @@ def run_file(file):
     """run with file"""
 
     assert os.path.isfile(file)
-    expected_file = file + '.out'
+    expected_file = f'{file}.out'
 
     assert os.path.isfile(expected_file)
     expected = open(expected_file).read()

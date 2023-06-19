@@ -62,7 +62,7 @@ def main():
     for name, low, high in random.sample(exercises, k=args.num):
         reps = random.randint(low, high)
         if args.easy:
-            reps = int(reps / 2)
+            reps //= 2
         wod.append((name, reps))
 
     print(tabulate(wod, headers=('Exercise', 'Reps')))

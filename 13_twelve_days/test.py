@@ -98,7 +98,7 @@ def test_all():
             os.remove(out_file)
 
         try:
-            out = getoutput(cmd + f' -o {out_file}').rstrip()
+            out = getoutput(f'{cmd} -o {out_file}').rstrip()
             assert out == ''
             assert os.path.isfile(out_file)
             output = open(out_file).read().rstrip()

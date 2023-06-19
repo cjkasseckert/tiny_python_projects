@@ -89,9 +89,8 @@ def read_wordlist(fh):
 def test_read_wordlist():
     """test"""
 
-    assert read_wordlist(io.StringIO('foo\nbar\nfoo')) == set(['foo', 'bar'])
-    assert read_wordlist(io.StringIO('foo bar\nbar foo\nfoo')) == set(
-        ['foo', 'bar'])
+    assert read_wordlist(io.StringIO('foo\nbar\nfoo')) == {'foo', 'bar'}
+    assert read_wordlist(io.StringIO('foo bar\nbar foo\nfoo')) == {'foo', 'bar'}
 
 
 # --------------------------------------------------

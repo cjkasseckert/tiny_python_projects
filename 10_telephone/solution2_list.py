@@ -57,7 +57,7 @@ def main():
     for i in random.sample(range(len_text), num_mutations):
         new_text[i] = random.choice(alpha.replace(new_text[i], ''))
 
-    print('You said: "{}"\nI heard : "{}"'.format(text, ''.join(new_text)))
+    print(f"""You said: "{text}"\nI heard : "{''.join(new_text)}\"""")
 
 
 # --------------------------------------------------

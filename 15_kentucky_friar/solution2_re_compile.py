@@ -43,11 +43,11 @@ def fry(word):
     you = re.match('([Yy])ou$', word)
 
     if ing_word:
-        prefix = ing_word.group(1)
+        prefix = ing_word[1]
         if re.search('[aeiouy]', prefix, re.IGNORECASE):
-            return prefix + "in'"
+            return f"{prefix}in'"
     elif you:
-        return you.group(1) + "'all"
+        return f"{you[1]}'all"
 
     return word
 

@@ -71,7 +71,7 @@ def main():
     for name, low, high in random.sample(exercises, k=args.num):
         reps = random.randint(low, high)
         if args.easy:
-            reps = int(reps / 2)
+            reps //= 2
         wod.append((name, reps))
 
     print(tabulate(wod, headers=('Exercise', 'Reps')))
@@ -85,8 +85,7 @@ def read_csv(fh):
     for row in csv.DictReader(fh, delimiter=','):
         name, reps = row.get('exercise'), row.get('reps')
         if name and reps:
-            match = re.match(r'(\d+)-(\d+)', reps)
-            if match:
+            if match := re.match(r'(\d+)-(\d+)', reps):
                 low, high = map(int, match.groups())
                 exercises.append((name, low, high))
 

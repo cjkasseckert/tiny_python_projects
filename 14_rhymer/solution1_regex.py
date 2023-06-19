@@ -44,21 +44,15 @@ def stemmer(word):
     vowels = 'aeiou'
     consonants = ''.join(
         [c for c in string.ascii_lowercase if c not in vowels])
-    pattern = (
-        '([' + consonants + ']+)?' # capture one or more, optional
-        '([' + vowels     + '])'   # capture at least one vowel
-        '(.*)'                     # capture zero or more of anything
-    )
+    pattern = f'([{consonants}]+)?([{vowels}])(.*)'
     pattern = f'([{consonants}]+)?([{vowels}])(.*)'
 
-    match = re.match(pattern, word)
-    if match:
-        p1 = match.group(1) or ''
-        p2 = match.group(2) or ''
-        p3 = match.group(3) or ''
-        return (p1, p2 + p3)
-    else:
+    if not (match := re.match(pattern, word)):
         return (word, '')
+    p1 = match[1] or ''
+    p2 = match[2] or ''
+    p3 = match[3] or ''
+    return (p1, p2 + p3)
 
 
 # --------------------------------------------------

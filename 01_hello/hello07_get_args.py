@@ -11,7 +11,7 @@ def get_args():
 
 def main():
     args = get_args()
-    print('Hello, ' + args.name + '!')
+    print(f'Hello, {args.name}!')
 
 if __name__ == '__main__':
     main()

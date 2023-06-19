@@ -74,7 +74,7 @@ def test_space():
     word = random.choice([' ', '\t'])
     rv, out = getstatusoutput(f'{prg} "{word}"')
     assert rv == 0
-    assert out == f'input is space.'
+    assert out == 'input is space.'
 
 
 # --------------------------------------------------

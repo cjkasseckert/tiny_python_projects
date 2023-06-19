@@ -28,7 +28,7 @@ def main():
     args = get_args()
     numbers = args.numbers
 
-    print('{} = {}'.format(' + '.join(map(str, numbers)), sum(numbers)))
+    print(f"{' + '.join(map(str, numbers))} = {sum(numbers)}")
 
 
 # --------------------------------------------------

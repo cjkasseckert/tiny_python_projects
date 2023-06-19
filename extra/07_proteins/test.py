@@ -31,7 +31,7 @@ def test_usage():
     """usage"""
 
     for flag in ['-h', '--help']:
-        rv, out = getstatusoutput('{} {}'.format(prg, flag))
+        rv, out = getstatusoutput(f'{prg} {flag}')
         assert rv == 0
         assert re.match("usage", out, re.IGNORECASE)
 
@@ -49,7 +49,7 @@ def test_no_args():
 def test_missing_input():
     """die on missing input"""
 
-    rv, out = getstatusoutput('{} -c codons.rna'.format(prg))
+    rv, out = getstatusoutput(f'{prg} -c codons.rna')
     assert rv != 0
     assert re.match("usage", out, re.IGNORECASE)
 
@@ -58,7 +58,7 @@ def test_missing_input():
 def test_missing_codons():
     """die on missing codons"""
 
-    rv, out = getstatusoutput('{} {}'.format(prg, dna))
+    rv, out = getstatusoutput(f'{prg} {dna}')
     assert rv > 0
     assert re.match("usage", out, re.IGNORECASE)
 
@@ -68,7 +68,7 @@ def test_bad_codon_file():
     """die on bad codon_file"""
 
     bad = random_filename()
-    rv, out = getstatusoutput('{} --codons {} {}'.format(prg, bad, dna))
+    rv, out = getstatusoutput(f'{prg} --codons {bad} {dna}')
     assert rv > 0
     assert re.search(f"No such file or directory: '{bad}'", out)
 
@@ -108,9 +108,11 @@ def run(input_seq, codons, expected):
     random_file = random_filename()
     try:
         flip = random.randint(0, 1)
-        out_file, out_arg = (random_file,
-                             '-o ' + random_file) if flip == 1 else ('out.txt',
-                                                                     '')
+        out_file, out_arg = (
+            (random_file, f'-o {random_file}')
+            if flip == 1
+            else ('out.txt', '')
+        )
         print(f'{prg} -c {codons} {out_arg} {input_seq}')
         rv, output = getstatusoutput(f'{prg} -c {codons} {out_arg} {input_seq}')
 

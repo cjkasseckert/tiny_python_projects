@@ -33,7 +33,7 @@ def test_usage():
     """usage"""
 
     for flag in ['-h', '--help']:
-        rv, out = getstatusoutput('{} {}'.format(prg, flag))
+        rv, out = getstatusoutput(f'{prg} {flag}')
         assert rv == 0
         assert re.match("usage", out, re.IGNORECASE)
 
@@ -105,7 +105,7 @@ def test_defaults():
 def test_options():
     """runs on good input"""
 
-    out_file = random_string() + '.fasta'
+    out_file = f'{random_string()}.fasta'
     try:
         if os.path.isfile(out_file):
             os.remove(out_file)
